@@ -1,0 +1,75 @@
+#include <bits/stdc++.h>
+#include<algorithm>
+#include<numeric>
+#include<cmath>
+#include<iostream>
+using namespace std;
+long long power(int y)
+{
+    int x=2;
+    long long res = 1;
+    if(y==0)
+        return 1;
+    while (y)
+    {
+        if (y&1)
+            res = (res * (long long)x);
+        y = y >> 1;
+        x = (x * x);
+    }
+    return res;
+}
+void bit(int *arr,int a)
+{
+    int temp=31;
+    while(a)
+    {
+        if(a&1)
+        {
+            arr[temp]+=1;
+        }
+        a=a>>1;
+        temp--;
+    }
+}
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,temp=31,j=0,var;
+       long long sum=0,ans=0;
+        cin>>n;
+        std::vector<int>vec;
+        int arr[32]={0};
+        for(int i=0;i<n;i++)
+        {
+            int a;
+            cin>>a;
+            vec.push_back(a);
+            bit(arr,a);
+        }
+        var=n/2;
+        while(temp>=0)
+        {
+            if((arr[temp]-var)>0)
+            {
+                sum+=power(j);
+            }
+            temp--;
+            j++;
+        }
+        n--;
+        while(n>=0)
+        {
+            ans += (long long)((vec[n])^sum);
+            n--;
+
+        }
+        cout<<ans<<endl;
+    }
+
+return 0;
+}
+
