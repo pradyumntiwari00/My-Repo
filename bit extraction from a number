@@ -1,0 +1,13 @@
+void bit(int *arr,int a)
+{
+    int temp=31;
+    while(a)
+    {
+        if(a&1)
+        {
+            arr[temp]+=1;
+        }
+        a=a>>1;
+        temp--;
+    }
+}
