@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#include<algorithm>
+#include<numeric>
+#include<cmath>
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long n,k,p,l,sum=0,after;
+        cin>>n>>p>>k;
+        l=p%k;
+        after=(n-1)%k;
+        if(after>=l)
+        {
+            cout<<l*((n-1+k)/k)+(p-l+k)/k<<endl;
+        }
+        else{
+         sum=(after+1)*((n-1+k)/k);
+         int r=(l-after-1);
+             sum+=r*((n-1)/k);
+             sum +=(p-l+k)/k;
+         cout<<sum<<endl;
+        }
+
+    }
+
+return 0;
+}
+
