@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#include<algorithm>
+#include<numeric>
+#include<cmath>
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,j,temp,p;
+        long long sum=0;
+ 3
+        cin>>n;
+
+        for(int i=1;i<=n/2;i++)
+        {
+            j=2*i;
+            temp=n;
+            p=(n/i)-1;
+            while(p--)
+            {
+
+                sum+=((temp-i)/j)+1;
+                j+=i;
+
+            }
+        }
+        cout<<sum<<endl;
+
+    }
+
+return 0;
+}
+
